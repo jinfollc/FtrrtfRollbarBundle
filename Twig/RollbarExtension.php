@@ -58,7 +58,8 @@ class RollbarExtension extends \Twig_Extension
         return array(
             new \Twig_SimpleFilter('rollbarjs', [
                 $this,
-                'getInitRollbarCode', [
+                'getInitRollbarCode',
+                [
                     'needs_context' => true,
                     'is_safe' => array('html')
                 ]
