@@ -53,17 +53,16 @@ class RollbarExtension extends \Twig_Extension
      *
      * @return array An array of functions
      */
-    public function getFunctions()
+    public function getFilters()
     {
         return array(
-            'rollbarjs' => new \Twig_Function_Method(
+            new \Twig_SimpleFilter('rollbarjs', [
                 $this,
-                'getInitRollbarCode',
-                array(
+                'getInitRollbarCode', [
                     'needs_context' => true,
-                    'is_safe' => array('html'),
-                )
-            ),
+                    'is_safe' => array('html')
+                ]
+            ]),
         );
     }
 
